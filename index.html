@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Horizontal Scroll of Frames with Swipe</title>
+<style>
+    .frames-container {
+        width: 100%;
+        overflow-x: hidden; /* Enable horizontal scrolling */
+        white-space: nowrap; /* Keep all frames in a single line */
+        -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
+        scroll-behavior: smooth; /* Optional: Smooth scrolling effect */
+    }
+
+    .frame {
+        display: inline-block;
+        width: 300px; /* Width of each frame */
+        height: 200px; /* Height of each frame */
+        margin-right: 10px; /* Spacing between frames */
+        background-color: #f0f0f0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Optional: Smooth scrolling effect */
+    .frames-container {
+        scroll-behavior: smooth;
+    }
+</style>
+</head>
+<body>
+    <div class="frames-container" id="framesContainer">
+        <div class="frame">Frame 1</div>
+        <div class="frame">Frame 2</div>
+        <div class="frame">Frame 3</div>
+        <div class="frame">Frame 4</div>
+        <div class="frame">Frame 5</div>
+        <!-- Add more frames as needed -->
+    </div>
+
+    <script>
+        // JavaScript to handle touch swipe for scrolling
+        const framesContainer = document.getElementById('framesContainer');
+        let startX;
+
+        framesContainer.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].pageX;
+        });
+
+        framesContainer.addEventListener('touchmove', (e) => {
+            e.preventDefault(); // Prevent vertical scrolling
+            const currentX = e.touches[0].pageX;
+            const diffX = startX - currentX;
+            framesContainer.scrollLeft += diffX;
+            startX = currentX;
+        });
+    </script>
+</body>
+</html>
