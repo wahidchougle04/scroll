@@ -1,61 +1,154 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Horizontal Scroll of Frames with Swipe</title>
-<style>
-    .frames-container {
-        width: 100%;
-        overflow-x: hidden; /* Enable horizontal scrolling */
-        white-space: nowrap; /* Keep all frames in a single line */
-        -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
-        scroll-behavior: smooth; /* Optional: Smooth scrolling effect */
-    }
+<html>
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <style>
+            body{
+                font-family: 'Times New Roman', Times, serif;
+                color: black;
+            }
+            .title{
+                font-family: 'Times New Roman', Times, serif;
+                background-color: #ff5509;
+                border-radius: 20px;
+                padding: 15px 15px;
+                margin-top: -15px;
+                
+            }
+            .title p{
+                font-weight: 500;
+                size: 50px;
+                font-size: 40px;
+            }
+            a{
+                text-decoration: none;
+                color: black;
+            }
+            .cont{
+                min-width: 110px;
+                min-height: 55px;
+                padding: 8;
+                margin: 10px;
+                background: #0c6e4e;
+                border-radius: 10px;
+                font-size: 30;
+                font-family: 'Times New Roman', Times, serif;
+                box-shadow: 5px 5px 15px black;
+                margin-right: 2px;
+            }
+            .inner{
+                background-color: #daffda;
+                padding: 25;
+                border-radius: 8px;
+                text-align: center;
+                
+            }
 
-    .frame {
-        display: inline-block;
-        width: 300px; /* Width of each frame */
-        height: 200px; /* Height of each frame */
-        margin-right: 10px; /* Spacing between frames */
-        background-color: #f0f0f0;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Optional: Smooth scrolling effect */
-    .frames-container {
-        scroll-behavior: smooth;
-    }
-</style>
-</head>
-<body>
-    <div class="frames-container" id="framesContainer">
-        <div class="frame">Frame 1</div>
-        <div class="frame">Frame 2</div>
-        <div class="frame">Frame 3</div>
-        <div class="frame">Frame 4</div>
-        <div class="frame">Frame 5</div>
-        <!-- Add more frames as needed -->
-    </div>
-
-    <script>
-        // JavaScript to handle touch swipe for scrolling
-        const framesContainer = document.getElementById('framesContainer');
-        let startX;
-
-        framesContainer.addEventListener('touchstart', (e) => {
-            startX = e.touches[0].pageX;
-        });
-
-        framesContainer.addEventListener('touchmove', (e) => {
-            e.preventDefault(); // Prevent vertical scrolling
-            const currentX = e.touches[0].pageX;
-            const diffX = startX - currentX;
-            framesContainer.scrollLeft += diffX;
-            startX = currentX;
-        });
-    </script>
-</body>
+            .frame1{
+                overflow-x: auto;
+                display: flex;
+                grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+                gap: 15px;
+                background-color: grey;
+                justify-content: center;
+            }
+            .frame1::-webkit-scrollbar{
+                width: 0;
+            }
+            .cont1:hover{
+                padding: 10;
+                font-size: 32;
+                box-shadow: 15px 15px 15px black;
+            }
+            .cont2:hover{
+                padding: 10;
+                font-size: 32;
+                box-shadow: 15px 15px 15px black;
+            }
+            .cont3:hover{
+                padding: 10;
+                font-size: 32;
+                box-shadow: 15px 15px 15px black;
+            }
+            .cont4:hover{
+                padding: 10;
+                font-size: 32;
+                box-shadow: 15px 15px 15px black;
+            }
+            button{
+                background-color: #0c6e4e; 
+                color: white;
+                font-weight: 1100;
+                font-size: 20;
+                font-family: 'Times New Roman', Times, serif;
+                padding: 4 16 ;
+                margin-top: 15;
+                border-radius: 12px;
+                border: 2;
+            }
+            form{
+                padding: 30px;
+            }
+            span{
+                font-size: 25px;
+            }
+            p{
+                font-size: 25px;
+            }
+            .product_full_frame{
+                display: flex;
+            }
+            @media print{
+                body * {
+                    visibility: hidden;
+                }
+                .print-container, .print-container * {
+                    visibility: visible;
+                }
+                .print-container{
+                    position: absolute;
+                    left: -260px;
+                    top: -30px;
+                    width: 100%;
+                    button: hidden;
+                }
+            }
+            footer{
+                background-color: red;
+            }
+        </style>
+        <div class="title">
+            <p>EPIC CAFE</p>
+        </div>
+    </head>
+    <body vlink="black", alink="blue", link="black">
+        <form method="post">
+        </form>    
+        <div class="frame1">
+        <div class="cont">
+            <div class="inner">
+            </div>
+        </div>
+        <div class="cont">
+            <div class="inner">
+            </div>
+        </div>
+        <div class="cont">
+            <div class="inner">
+            </div>
+        </div>
+        <div class="cont">
+            <div class="inner">
+            </div>
+        </div>
+        </div>
+        <footer>
+            <div name="menu">
+                
+            </div>
+        </footer>
+    </body>
 </html>
