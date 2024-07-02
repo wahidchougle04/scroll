@@ -47,6 +47,9 @@
             .frame::-webkit-scrollbar{
                 width: 0;
             }
+            .categories::-webkit-scrollbar{
+                width: 0;
+            }
             .cont:hover{
                 padding: 10;
                 font-size: 32;
@@ -78,8 +81,10 @@
                     button: hidden;
                 }
             }
-            img{
-                border-radius: 50%;
+            
+            .categories{
+                display: flex;
+                overflow-x: auto;
             }
         </style>
         <div class="title">
@@ -89,14 +94,15 @@
     <body vlink="black", alink="blue", link="black">
         <form method="post">
         </form>
+        <p>What's on your mind?</p>
         <div class="categories">
-            <p>What's on your mind?</p>
+            <div class="food"><img src="Coffee.avif"></div>
+            <div class="food"><img src="Idli.avif"></div>
             <div class="food"><img src="Dosa.avif"></div>
-            <div class="food"></div>
-            <div class="food"></div>
-            <div class="food"></div>
-            <div class="food"></div>
-            <div class="food"></div>
+            <div class="food"><img src="Chole_Bature.avif"></div>
+            <div class="food"><img src="Pav_Bhaji.avif"></div>
+            <div class="food"><img src="Khichdi.avif"></div>
+            <div class="food"><img src="Juice.avif"></div>
         </div>    
         <div class="frame">
         <div class="cont">1</div>
